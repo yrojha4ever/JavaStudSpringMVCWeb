@@ -35,4 +35,35 @@ public class StudentDaoImpl implements StudentDao {
 		return id;
 	}
 
+	@Override
+	@Transactional
+	public void inserUpdate(Student student) {
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(student);
+	}
+
+	@Override
+	@Transactional
+	public void edit(Long id) {
+		Session session = sessionFactory.getCurrentSession();
+		Student student = (Student) session.get(Student.class, id);
+		session.saveOrUpdate(student);
+	}
+
+	@Override
+	@Transactional
+	public void delete(Long id) {
+		Session session = sessionFactory.getCurrentSession();
+		Student student = (Student) session.get(Student.class, id);
+		session.delete(student);
+	}
+
+	@Override
+	@Transactional
+	public Student get(Long id) {
+		Session session = sessionFactory.getCurrentSession();
+		Student student = (Student) session.get(Student.class, id);
+		return student;
+	}
+
 }

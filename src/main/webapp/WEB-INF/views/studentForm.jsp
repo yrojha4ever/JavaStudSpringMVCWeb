@@ -12,8 +12,12 @@
 </head>
 <body>
 
+	<a href="${pageContext.request.contextPath}/logout">Logout User</a> |
+	<a href="${pageContext.request.contextPath}/upload">File Upload Example</a> |
+	<a href="${pageContext.request.contextPath}/rest" > Rest API Call</a>
+
 	<h2>Student Information</h2>
-	<form:form method="POST" action="stud" modelAttribute="student">
+	<form:form method="POST" modelAttribute="student">
 		<table>
 			<tr>
 				<td><form:label path="firstName">First Name</form:label></td>
@@ -36,16 +40,15 @@
 				<td><form:input path="collegeName" /></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="Submit" /></td>
+				<td colspan="2"><input type="submit" value="Save" /></td>
 			</tr>
 		</table>
 		<form:hidden path="id" />
 	</form:form>
 
-	<hr />
-
+	<hr/>
 	Student Details:
-	<table style="border-width: 1px solid">
+	<table border="1" style="border-collapse:collapse;">
 		<thead>
 		<tr>
 			<th></th>
@@ -58,9 +61,9 @@
 		<tbody>
 			<c:forEach var="row" items="${studentList }">
 				<tr>
-					<td><input type="button" onclick="edit('${row.id }')"
-						value="Edit" style="color: green" /> <input type="button"
-						onclick="delete('${row.id }')" value="Delete" style="color: red" />
+					<td>
+					    <input type="button" onclick="editStud(${row.id })" value="Edit" style="color: green" /> 
+					    <input type="button" onclick="deleteStud(${row.id })" value="Delete" style="color: red" />
 					</td>
 					<td>${row.firstName }, ${row.lastName }</td>
 					<td>${row.rollNo }</td>
@@ -70,6 +73,19 @@
 			</c:forEach>
 		</tbody>
 	</table>
-
+	
+	<script type="text/javascript">
+		function editStud(id){
+			location.href = "${pageContext.request.contextPath}/stud/" + id + "/edit";
+		}
+	
+		function deleteStud(id){
+			var r = confirm("Are you sure you want to delete this recored?");
+			if (r == true) {
+				window.location = "${pageContext.request.contextPath}/stud/" + id + "/delete";
+			} 
+		}
+	</script>
+	
 </body>
 </html>

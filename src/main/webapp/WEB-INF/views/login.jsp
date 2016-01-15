@@ -9,6 +9,9 @@
 </head>
 <body>
 	
+	
+	<h3 style="color:red"> ${loginError }</h3>
+	
 	<section class="loginform cf">
 		<form action="profile" method="post" model="user" accept-charset="utf-8">
 			<ul>

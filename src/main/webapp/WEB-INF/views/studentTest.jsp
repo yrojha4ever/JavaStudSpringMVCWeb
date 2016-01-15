@@ -7,13 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<h3> Hello Student Test </h3>
+	<hr>
+	Your ID is: ${studId } <br/>
+	 
+	Roll No: ${rollNo } <br/>
 	
-	Welcome: <%=session.getAttribute("activeUser") %>  |  <a href="${pageContext.request.contextPath}/logout">Logout User</a>
-	
-	<hr> 
-	<a href="${pageContext.request.contextPath}/stud">Go To Student Form</a> |
-	<a href="${pageContext.request.contextPath}/upload">File Upload Example</a> |
-	<a href="${pageContext.request.contextPath}/rest" > Rest API Call</a>
+	Countries: ${richc }
 	
 </body>
 </html>
