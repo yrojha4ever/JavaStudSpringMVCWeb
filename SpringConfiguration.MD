@@ -9,7 +9,7 @@ Spring JSTL:
 
 
 ============File Upload:=============
-```
+```xml
 1. pom.xml:
 <!-- Common File Upload: -->
 		<dependency>
@@ -24,13 +24,13 @@ Spring JSTL:
 			<version>2.4</version>
 		</dependency>
 ```
-```
+```xml
 2. servlet-context.xml
 <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="20000000"/>
     </bean>
 ```
-```
+```html
 3. FileUpload.jsp
 
 File Upload Example: 
@@ -44,7 +44,7 @@ File Upload Example:
 	<br/><br/>
 	<label style="color:red">${successMsg}</label>
 ```
-```
+```java
 	4. In Controller:
 @Controller
 @RequestMapping("/upload")
@@ -77,7 +77,7 @@ public class FileUploadController {
 ```
 
 ===============Spring Rest API Call===============
-```
+```xml
 1. POM.xml : Need this for json to/from object: For SPRING REST Call
 <dependency>
 	<groupId>com.fasterxml.jackson.core</groupId>
@@ -90,7 +90,7 @@ public class FileUploadController {
 	<version>2.5.4</version>
 </dependency>
 ```
-```
+```java
 2. Controller: @RestController 
 @RestController
 @RequestMapping("api/rest")
@@ -110,7 +110,7 @@ public class StudentRestController {
 3. You need to have Jquery to send ajax rest call to server:
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 ```
-```
+```java
 4. Create /rest to go to rest testing jsp file:
 
 	@RequestMapping(value = "/rest", method = RequestMethod.GET)
@@ -120,7 +120,7 @@ public class StudentRestController {
 	
 ```
    5. create rest.jsp file like this:
-```
+```html
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
