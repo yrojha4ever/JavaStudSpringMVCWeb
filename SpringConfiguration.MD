@@ -23,16 +23,17 @@ Spring JSTL:
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
 		</dependency>
-		
+```
+```
 2. servlet-context.xml
 <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="20000000"/>
     </bean>
-
+```
+```
 3. FileUpload.jsp
 
 File Upload Example: 
-
 	
 	<form method="POST" action="upload" enctype="multipart/form-data" style="color:blue;border: 1px solid">
         File to upload: <input type="file" name="file">
@@ -42,7 +43,8 @@ File Upload Example:
 	
 	<br/><br/>
 	<label style="color:red">${successMsg}</label>
-	
+```
+```
 	4. In Controller:
 	@RequestMapping(method = RequestMethod.POST)
 	public String upload(@RequestParam("file") MultipartFile file, Model model) throws IOException {
@@ -107,7 +109,7 @@ public class StudentRestController {
 	}
 	
 ```
-5. create rest.jsp file like this:
+   5. create rest.jsp file like this:
 ```
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
