@@ -68,4 +68,9 @@ public class HomeController {
 		return "login";
 	}
 
+	@RequestMapping(value = "/rest", method = RequestMethod.GET)
+	public String restCall() {
+		return "rest";
+	}
+
 }
