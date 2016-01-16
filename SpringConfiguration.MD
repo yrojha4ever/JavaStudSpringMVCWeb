@@ -103,10 +103,9 @@ public class StudentRestController {
 	public String restCall() {
 		return "rest";
 	}
-
-
+	
 ```
-> create rest.jsp file like this:
+create rest.jsp file like this:
 ```
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -143,8 +142,8 @@ public class StudentRestController {
 </script>
 
 </html>
-```
 
+```
 ```
 Where $.ajax is jquery Ajax server call method.
 content type: application/json is to modify header information from text/html to json.
@@ -158,5 +157,4 @@ $.ajax({
 });
 
 It will care server api/rest url(that is rest usrl it only accept/resturn json data.
-
 ```
