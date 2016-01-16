@@ -104,9 +104,10 @@ public class StudentRestController {
 		return "rest";
 	}
 
-> create rest.jsp file like this:
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
+> create rest.jsp file like this:
+```
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -142,7 +143,9 @@ public class StudentRestController {
 </script>
 
 </html>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
+
+```
 Where $.ajax is jquery Ajax server call method.
 content type: application/json is to modify header information from text/html to json.
 JSON.stringify is to convert JSON data to String.
