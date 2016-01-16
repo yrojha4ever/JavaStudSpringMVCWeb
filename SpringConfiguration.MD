@@ -46,6 +46,15 @@ File Upload Example:
 ```
 ```
 	4. In Controller:
+@Controller
+@RequestMapping("/upload")
+public class FileUploadController {
+
+	@RequestMapping(method = RequestMethod.GET)
+	public String index() {
+		return "fileUpload";
+	}
+
 	@RequestMapping(method = RequestMethod.POST)
 	public String upload(@RequestParam("file") MultipartFile file, Model model) throws IOException {
 		byte[] bytes;
@@ -64,6 +73,7 @@ File Upload Example:
 		model.addAttribute("successMsg", "File upload Success: "+ file.getOriginalFilename());
 		return "fileUpload";
 	}
+}
 ```
 
 ===============Spring Rest API Call===============
