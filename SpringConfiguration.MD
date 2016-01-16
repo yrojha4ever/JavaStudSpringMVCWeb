@@ -77,7 +77,8 @@ File Upload Example:
 	<artifactId>jackson-databind</artifactId>
 	<version>2.5.4</version>
 </dependency>
-
+```
+```
 2. Controller: @RestController 
 @RestController
 @RequestMapping("api/rest")
@@ -92,12 +93,13 @@ public class StudentRestController {
 		return studList;
 	}
 }
-
+```
+```
 3. You need to have Jquery to send ajax rest call to server:
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-
-4. Lets START:
-> Create /rest to go to rest testing jsp file:
+```
+```
+4. Create /rest to go to rest testing jsp file:
 
 	@RequestMapping(value = "/rest", method = RequestMethod.GET)
 	public String restCall() {
@@ -105,7 +107,7 @@ public class StudentRestController {
 	}
 	
 ```
-create rest.jsp file like this:
+5. create rest.jsp file like this:
 ```
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
