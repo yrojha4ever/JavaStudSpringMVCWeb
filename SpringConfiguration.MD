@@ -172,16 +172,19 @@ $.ajax({
 
 It will care server api/rest url(that is rest usrl it only accept/resturn json data.
 ```
---------------------LOG4J---------------
+
+======================LOG4J=====================
 log4j is a reliable, fast and flexible logging framework (APIs) written in Java. <br/>
-log4j has three main components: 
+log4j has three main components: <br/>
+```
 	loggers: Responsible for capturing logging information. 
 	appenders: Responsible for publishing logging information to various preferred destinations.
 	layouts: Responsible for formatting logging information in different styles.
 It uses multiple levels, namely ALL, TRACE, DEBUG, INFO, WARN, ERROR and FATAL
-
+```
+****************
 Log4j configuration in XML file format. (Create log4j.xml file in src/main/resources)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+****************
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
@@ -237,8 +240,9 @@ Log4j configuration in XML file format. (Create log4j.xml file in src/main/resou
 	
 </log4j:configuration>
 ```
+
 OR> Log4j configuration in properties file format. (you can create log4j.properties file as well):
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ```
 # Root logger option
 log4j.rootLogger=DEBUG, stdout, file
