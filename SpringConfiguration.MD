@@ -173,7 +173,7 @@ $.ajax({
 It will care server api/rest url(that is rest usrl it only accept/resturn json data.
 ```
 
-======================LOG4J=====================
+======================LOG4J=====================<br/>
 log4j is a reliable, fast and flexible logging framework (APIs) written in Java. <br/>
 log4j has three main components: <br/>
 ```
