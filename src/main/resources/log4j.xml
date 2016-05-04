@@ -10,6 +10,16 @@
 		</layout>
 	</appender>
 	
+	<appender name="file" class="org.apache.log4j.RollingFileAppender">
+		<param name="file" value="C:\\log4j-application.log" />
+		<param name="append" value="false" />
+		<param name="maxFileSize" value="5MB"/>
+		<param name="maxBackupIndex" value="10"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
+		</layout>
+	</appender>
+	
 	<!-- Application Loggers -->
 	<logger name="com.javastud.springmvcweb">
 		<level value="info" />
@@ -36,6 +46,8 @@
 	<root>
 		<priority value="warn" />
 		<appender-ref ref="console" />
+		<appender-ref ref="file" />
+		<appender-ref ref="stdout" />
 	</root>
 	
 </log4j:configuration>
