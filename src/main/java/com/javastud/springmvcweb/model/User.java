@@ -13,16 +13,16 @@ public class User {
 	@Id
 	@GeneratedValue
 	private Long id;
-
-	@Column(name = "username")
+	
+	@Column(name="username")
 	private String username;
-
+	
 	@Column(name = "password")
 	private String password;
 
 	@Override
 	public String toString() {
-		return "User " + id + " " + username + " " + password;
+		return "User [id=" + id + ", username=" + username + ", password=" + password + "]";
 	}
 
 	public Long getId() {
@@ -48,5 +48,5 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	
 }

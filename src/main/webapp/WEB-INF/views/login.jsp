@@ -4,14 +4,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-<link  rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css">
+<title>Login</title>
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+
+<style type="text/css">
+.error{
+	color:red
+}
+</style>
+
 </head>
 <body>
-	
-	
-	<h3 style="color:red"> ${loginError }</h3>
-	
+
+	<h3 class="error"> ${loginError} </h3>
+
 	<section class="loginform cf">
 		<form action="profile" method="post" model="user" accept-charset="utf-8">
 			<ul>
@@ -28,7 +35,7 @@
 			</ul>
 		</form>
 	 </section>
-	
-	
+
+
 </body>
 </html>

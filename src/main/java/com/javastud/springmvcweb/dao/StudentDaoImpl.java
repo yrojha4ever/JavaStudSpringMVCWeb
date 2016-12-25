@@ -17,45 +17,26 @@ public class StudentDaoImpl implements StudentDao {
 
 	@Resource
 	private SessionFactory sessionFactory;
+	
+	@Override
+	@Transactional
+	public void insertUpdate(Student student) {
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(student);
+	}
 
 	@Override
+	@Transactional
 	public List<Student> getAll() {
-		Session session = sessionFactory.openSession();
+		Session session = sessionFactory.getCurrentSession();
 		Criteria criteria = session.createCriteria(Student.class);
-		List<Student> students = (List<Student>) criteria.list();
-		session.close();
-		return students;
-	}
-
-	@Override
-	@Transactional
-	public Long insert(Student student) {
-		Session session = sessionFactory.getCurrentSession();
-		Long id = (Long) session.save(student);
-		return id;
-	}
-
-	@Override
-	@Transactional
-	public void inserUpdate(Student student) {
-		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(student);
-	}
-
-	@Override
-	@Transactional
-	public void edit(Long id) {
-		Session session = sessionFactory.getCurrentSession();
-		Student student = (Student) session.get(Student.class, id);
-		session.saveOrUpdate(student);
-	}
-
-	@Override
-	@Transactional
-	public void delete(Long id) {
-		Session session = sessionFactory.getCurrentSession();
-		Student student = (Student) session.get(Student.class, id);
-		session.delete(student);
+		
+		/*criteria.add(Restrictions.eq("lastName", "SHRESTHA"));
+		criteria.add(Restrictions.isNotEmpty("collegeName"));*/
+		
+		List<Student> studList =  (List<Student>) criteria.list();
+		
+		return studList;
 	}
 
 	@Override
@@ -64,6 +45,14 @@ public class StudentDaoImpl implements StudentDao {
 		Session session = sessionFactory.getCurrentSession();
 		Student student = (Student) session.get(Student.class, id);
 		return student;
+	}
+
+	@Override
+	@Transactional
+	public void delete(Long id) {
+		Session session = sessionFactory.getCurrentSession();
+		Student student = (Student) session.get(Student.class, id);
+		session.delete(student);
 	}
 
 }

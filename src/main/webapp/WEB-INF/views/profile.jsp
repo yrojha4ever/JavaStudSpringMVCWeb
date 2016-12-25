@@ -7,13 +7,18 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	Welcome: <%=session.getAttribute("activeUser") %>  |
+	<a href="${pageContext.request.contextPath }/logout"> Logout User </a>
 	
-	Welcome: <%=session.getAttribute("activeUser") %>  |  <a href="${pageContext.request.contextPath}/logout">Logout User</a>
+	<hr/>
+	<a href="${pageContext.request.contextPath }/stud"> Go To Student Form </a>
 	
-	<hr> 
-	<a href="${pageContext.request.contextPath}/stud">Go To Student Form</a> |
-	<a href="${pageContext.request.contextPath}/upload">File Upload Example</a> |
-	<a href="${pageContext.request.contextPath}/rest" > Rest API Call</a>
+	<hr/>
+	<a href="${pageContext.request.contextPath }/upload"> File Upload Example </a>
+	
+	<hr/>
+	<a href="${pageContext.request.contextPath }/rest"> Rest API Example  </a>
 	
 </body>
 </html>

@@ -1,10 +1,5 @@
 package com.javastud.springmvcweb.controller;
 
-import java.util.Arrays;
-import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,79 +12,53 @@ import com.javastud.springmvcweb.dao.StudentDao;
 import com.javastud.springmvcweb.model.Student;
 
 @Controller
-@RequestMapping("/stud")
+@RequestMapping(value = "/stud")
 public class StudentController {
-
-	private static final Logger logger = LoggerFactory.getLogger(StudentController.class);
 
 	@Autowired
 	private StudentDao studentDao;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String index(Model model) {
-		logger.info("GET: stud");
+	public String studGET(Model model) {
 
 		model.addAttribute("student", new Student());
-		List<Student> studList = studentDao.getAll();
-		model.addAttribute("studentList", studList);
+		model.addAttribute("studentList", studentDao.getAll());
 
 		return "studentForm";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String studFormPost(Model model, @ModelAttribute Student student) {
-		logger.info("POST: stud: " + student);
-
-		studentDao.inserUpdate(student);
+	public String studPOST(Model model, @ModelAttribute Student student) {
+		// Save data in db.
+		studentDao.insertUpdate(student);
 
 		model.addAttribute("student", new Student());
+		model.addAttribute("studentList", studentDao.getAll());
 
-		List<Student> studList = studentDao.getAll();
-		model.addAttribute("studentList", studList);
 		return "studentForm";
 	}
 
 	@RequestMapping(value = "{id}/edit", method = RequestMethod.GET)
-	public String editStudent(Model model, @PathVariable("id") Long id) {
-		logger.info("EDIT: stud: " + id);
+	public String editStud(@PathVariable("id") Long id, Model model) {
+		Student stud = studentDao.get(id);
 
-		// Show Student DB Record for that id.
-		model.addAttribute("student", studentDao.get(id));
+		model.addAttribute("student", stud);
+		model.addAttribute("studentList", studentDao.getAll());
 
-		List<Student> studList = studentDao.getAll();
-		model.addAttribute("studentList", studList);
 		return "studentForm";
 	}
-	
+
 	@RequestMapping(value = "{id}/edit", method = RequestMethod.POST)
-	public String editStudentPOST(Model model, @ModelAttribute Student student) {
-		logger.info("POST: editStudentPOST: " + student);
-		studentDao.inserUpdate(student);
+	public String editStudPOST(@ModelAttribute Student student) {
+		// Save data in db.
+		studentDao.insertUpdate(student);
 		return "redirect:/stud";
 	}
-
+	
 	@RequestMapping(value = "{id}/delete", method = RequestMethod.GET)
-	public String deleteStudent(Model model, @PathVariable("id") Long id) {
-		// Delete record.
+	public String deleteStud( @PathVariable("id") Long id ){
 		studentDao.delete(id);
-		logger.info("Record is deleted: " + id);
 		return "redirect:/stud";
-	}
-
-	// ***********Only For TESTING..***********
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public String getStudent(@PathVariable("id") int id, Model model) {
-		model.addAttribute("studId", id);
-		model.addAttribute("richc", Arrays.asList("USA", "Canada", "UK"));
-		return "studentTest";
-	}
-
-	@RequestMapping(value = "/{id}/rollno/{rn}", method = RequestMethod.GET)
-	public String getStudent(@PathVariable("id") int id, @PathVariable("rn") String rn, Model model) {
-		model.addAttribute("studId", id);
-		model.addAttribute("rollNo", rn);
-		model.addAttribute("richc", Arrays.asList("USA", "Canada", "UK"));
-		return "studentTest";
 	}
 
 }

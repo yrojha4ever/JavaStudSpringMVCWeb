@@ -7,32 +7,31 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "student")
+@Table(name= "student")
 public class Student {
-
 	@Id
 	@GeneratedValue
 	private Long id;
-
-	@Column(name = "first_name")
+	
+	@Column(name="first_name")
 	private String firstName;
-
-	@Column(name = "last_name")
+	
+	@Column(name="last_name")
 	private String lastName;
-
-	@Column(name = "roll_no")
+	
+	@Column(name="roll_no")
 	private String rollNo;
-
-	@Column(name = "college_name")
+	
+	@Column(name="college_name")
 	private String collegeName;
-
-	@Column(name = "subject")
+	
+	@Column(name="subject")
 	private String subject;
 
 	@Override
 	public String toString() {
-		return "Student: " + id + " " + firstName + " " + lastName + " " + 
-	rollNo + " " + collegeName + " " + subject;
+		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", rollNo=" + rollNo
+				+ ", collegeName=" + collegeName + ", subject=" + subject + "]";
 	}
 
 	public Long getId() {
@@ -82,5 +81,5 @@ public class Student {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-
+	
 }
