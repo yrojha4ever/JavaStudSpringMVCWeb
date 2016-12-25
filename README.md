@@ -1,7 +1,8 @@
 # JavaStudSpringMVCWeb
 This is annotation based on Spring and Hibernate Version 4 project.
 
-Short Tutorial & uses:
+Short Tutorial & uses: <br/>
+
 Spring JSTL:
 ```
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
