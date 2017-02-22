@@ -99,6 +99,15 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.10</version>
 		</dependency>
+		
+		<!-- Lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.14</version>
+			<scope>provided</scope>
+		</dependency>
+		
 		<!-- END: Extra spring library added: -->
 
 		<!-- AspectJ -->
@@ -221,6 +230,19 @@
 					<mainClass>org.test.int1.Main</mainClass>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+				    <server>localhost</server>
+				    <path>/springmvcweb</path>
+				    <systemProperties>
+					<user.timezone>Etc/UTC</user.timezone>
+				    </systemProperties>
+				</configuration>
+			    </plugin>
+			
 		</plugins>
 	</build>
 </project>
