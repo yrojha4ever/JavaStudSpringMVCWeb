@@ -1,6 +1,8 @@
 # JavaStudSpringMVCWeb
 This is annotation based on Spring and Hibernate Version 4 project.
 
+<strong>Run project, Maven command: mvn clean package tomcat7:run </strong><br/> 
+
 Short Tutorial & uses: <br/>
 
 Spring JSTL:
