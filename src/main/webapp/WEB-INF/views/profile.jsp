@@ -20,5 +20,7 @@
 	<hr/>
 	<a href="${pageContext.request.contextPath }/rest"> Rest API Example  </a>
 	
+	<hr/>
+	
 </body>
 </html>

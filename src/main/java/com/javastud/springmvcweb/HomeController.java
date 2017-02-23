@@ -65,7 +65,10 @@ public class HomeController {
 		return "rest";
 	}
 	
-	
+	@RequestMapping(value="/angular", method = RequestMethod.GET)
+	public String angular(){
+		return "currency";
+	}
 	
 	
 	
