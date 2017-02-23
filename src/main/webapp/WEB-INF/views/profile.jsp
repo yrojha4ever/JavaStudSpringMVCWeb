@@ -21,6 +21,7 @@
 	<a href="${pageContext.request.contextPath }/rest"> Rest API Example  </a>
 	
 	<hr/>
+	<a href="${pageContext.request.contextPath }/angular"> Angular App  </a>
 	
 </body>
 </html>
