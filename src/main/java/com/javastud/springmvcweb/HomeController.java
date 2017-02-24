@@ -39,7 +39,6 @@ public class HomeController {
 	
 	@RequestMapping(value="/profile", method = RequestMethod.POST)
 	public String profilePOST( @ModelAttribute User user, Model model, HttpSession session){
-		
 		if(userDao.validateUser(user)){
 			//Success: Display Profile
 			session.setAttribute("activeUser", user.getUsername());

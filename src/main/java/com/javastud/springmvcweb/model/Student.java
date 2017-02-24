@@ -1,14 +1,23 @@
 package com.javastud.springmvcweb.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
+import org.springframework.web.multipart.MultipartFile;
+
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name= "student")
 public class Student {
+	
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -27,59 +36,14 @@ public class Student {
 	
 	@Column(name="subject")
 	private String subject;
+	
+	@Column(name="birth_date")
+	private Date birthDate;
+	
+	@Column(name = "image_name")
+	private String imageName;
 
-	@Override
-	public String toString() {
-		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", rollNo=" + rollNo
-				+ ", collegeName=" + collegeName + ", subject=" + subject + "]";
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getRollNo() {
-		return rollNo;
-	}
-
-	public void setRollNo(String rollNo) {
-		this.rollNo = rollNo;
-	}
-
-	public String getCollegeName() {
-		return collegeName;
-	}
-
-	public void setCollegeName(String collegeName) {
-		this.collegeName = collegeName;
-	}
-
-	public String getSubject() {
-		return subject;
-	}
-
-	public void setSubject(String subject) {
-		this.subject = subject;
-	}
+	@Transient
+	private MultipartFile file;
 	
 }
