@@ -1,5 +1,6 @@
 package com.javastud.springmvcweb.controller;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -51,27 +52,31 @@ public class FileUploadDownloadController {
 	public void download(@RequestParam("file") String fileName, HttpServletResponse response) throws IOException {
 
 		if (!StringUtils.isEmpty(fileName)) {
+			
+			File imagePath = new File(FileStorageService.FILE_PATH + fileName);
+			if (imagePath.exists()) {
 
-			fileName = URLDecoder.decode(fileName, "UTF-8");
-			String ext = FilenameUtils.getExtension(fileName);
-			String name = FilenameUtils.getBaseName(fileName);
+				fileName = URLDecoder.decode(fileName, "UTF-8");
+				String ext = FilenameUtils.getExtension(fileName);
+				String name = FilenameUtils.getBaseName(fileName);
 
-			if (ext.equals("png") || ext.equals("jpg") || ext.equals("jpeg")) {
-				response.setContentType("image/" + ext);
-			} else if (ext.equals("pdf")) {
-				response.setContentType("application/" + ext);
+				if (ext.equals("png") || ext.equals("jpg") || ext.equals("jpeg")) {
+					response.setContentType("image/" + ext);
+				} else if (ext.equals("pdf")) {
+					response.setContentType("application/" + ext);
+				}
+				response.setHeader("Content-Disposition", "attachment;filename=" + fileName);
+
+				PrintWriter out = response.getWriter();
+				FileInputStream fin = new FileInputStream(imagePath);
+
+				int i = 0;
+				while ((i = fin.read()) != -1) {
+					out.write(i);
+				}
+				fin.close();
+				out.close();
 			}
-			response.setHeader("Content-Disposition", "attachment;filename=" + fileName);
-
-			PrintWriter out = response.getWriter();
-			FileInputStream fin = new FileInputStream(FileStorageService.FILE_PATH + fileName);
-
-			int i = 0;
-			while ((i = fin.read()) != -1) {
-				out.write(i);
-			}
-			fin.close();
-			out.close();
 		}
 
 	}

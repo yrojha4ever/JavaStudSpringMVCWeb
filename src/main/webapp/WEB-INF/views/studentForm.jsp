@@ -34,7 +34,7 @@
 		enctype="multipart/form-data">
 		<table>
 			<tr>
-				<td>Select a Photo to Upload: <input type="file" name="file" id="file" /></td>
+				<td>Select a Photo to Upload: <form:input path="file" type="file"/></td>
 				<td><img id="image" alt="" src="${pageContext.request.contextPath }/download?file=${student.imageName}" width="100" height="100" /></td>
 			</tr>
 			<tr>
@@ -62,6 +62,10 @@
 				<td><form:input path="collegeName" /></td>
 			</tr>
 			<tr>
+				<td><form:label path="fee">Fee</form:label></td>
+				<td><form:input path="fee" type="number" step="0.01" /></td>
+			</tr>
+			<tr>
 				<td></td>
 				<td><input type="submit" class="btn btn-info" value="Save" /></td>
 			</tr>
@@ -83,6 +87,7 @@
 				<th>Roll No</th>
 				<th>Subject</th>
 				<th>College Name</th>
+				<th>Fee</th>
 			</tr>
 		</thead>
 
@@ -100,6 +105,7 @@
 					<td>${row.rollNo }</td>
 					<td>${row.subject }</td>
 					<td>${row.collegeName }</td>
+					<td>${row.fee }</td>
 				</tr>
 			</c:forEach>
 		</tbody>
