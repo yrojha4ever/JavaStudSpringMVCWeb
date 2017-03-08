@@ -14,10 +14,11 @@
 	<h3>Rest Call Example:</h3>
 	
 	<button onclick="showStudJsonData()"> Show All Students</button>
+	<button onclick="showSpringRestCurrencyData()"> Get Currency Rate</button>
 	<p id="studJSON"> </p>
 	<hr/>
 	
-	<p id="currency"> </p>
+	<p id="currency"> loading... </p>
 
 
 	<script type="text/javascript">
@@ -32,15 +33,24 @@
 			});
 		}
 		
+		function showSpringRestCurrencyData(){
+			$.ajax({
+				type : "GET",
+				contentType : "application/json",
+				url : "api/rest/currency"
+			}).then(function(data){
+				$("#studJSON").html( JSON.stringify( data ) );
+			});
+		}
+		
 		//http://api.fixer.io/latest?base=USD
 		$(document).ready(function(){
-			
-			
 			$.ajax({
 				type : "GET",
 				contentType : "application/json",
 				url : "http://api.fixer.io/latest?base=USD"
 			}).then(function(result){
+				$('#currency').html("");
 				$.each(result.rates, function(key, value){
 					$("#currency").append('<label>'+ key + " : " + value + '</label> <br/>');
 				});

@@ -4,7 +4,7 @@ package com.javastud.springmvcweb.designpatterns.decorator;
 public class DecoratorPatterenTest {
 	public static void main(String[] args) {
 		
-		String content = "HI, This is John form Nepal , \n learn Decorator pattern.";
+		String content = "HI, This is John form Nepal , \n learning Decorator pattern.";
 		
 		IEmail email = new Email(content);
 		

@@ -8,5 +8,6 @@ public class BuilderPatternExample {
 						.email("ram@gmail.com")
 						.build();
 		System.out.println(user);
+		
 	}
 }
