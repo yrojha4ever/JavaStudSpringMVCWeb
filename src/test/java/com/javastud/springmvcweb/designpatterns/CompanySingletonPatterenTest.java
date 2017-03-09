@@ -11,18 +11,17 @@ public class CompanySingletonPatterenTest {
 	public void testCompanyEqual() {
 		Company comp1 = Company.getInstance();
 		Company comp2 = Company.getInstance();
-		
-		//check not null
+
+		// check not null
 		Assert.assertNotNull(comp1);
 
-		//check equals
+		// check equals
 		assertEquals(comp1.getName(), "NGSOFT");
 		assertEquals(comp2.getName(), "NGSOFT");
-		
+
 		Assert.assertSame(comp1, comp2);
-		
-		Assert.assertFalse("Company name is blank: ", comp1.getName().equals("NEPAL"));
-		
+
 	}
+
 
 }
