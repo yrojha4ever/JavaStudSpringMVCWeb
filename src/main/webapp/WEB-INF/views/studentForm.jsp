@@ -26,7 +26,7 @@
 
 
 
-	Welcome: <%=session.getAttribute("activeUser")%> | <a href="${pageContext.request.contextPath }/logout"> Logout User </a>
+	Welcome: <c:out value="${pageContext.request.remoteUser}"/> | <a href="${pageContext.request.contextPath }/logout"> Logout User </a>
 
 	<hr>
 	<h2>Student Information</h2>

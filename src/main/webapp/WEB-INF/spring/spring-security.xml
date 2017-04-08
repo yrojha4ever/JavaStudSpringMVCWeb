@@ -1,0 +1,49 @@
+<b:beans xmlns="http://www.springframework.org/schema/security"
+		 xmlns:b="http://www.springframework.org/schema/beans"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+	
+	<b:import resource="dataSource.xml" />
+
+	<!-- Spring Security -->
+	<!-- Stateless RESTful service using Basic authentication -->
+	<http pattern="/api/**" create-session="stateless">
+		<intercept-url pattern='/**' access="hasRole('ROLE_REMOTE')" />
+		<http-basic />
+	</http>
+	
+	<!-- Additional filter chain for normal users, matching all other requests -->
+	<http use-expressions="true">
+		<intercept-url pattern="/resources/**" access="permitAll"/>
+		<intercept-url pattern="/login*" access="permitAll"/>
+		<intercept-url pattern="/**" access="isAuthenticated()" />
+		<form-login login-page="/login" default-target-url="/" authentication-failure-url="/login?error"/>
+		<logout />
+		
+		<csrf disabled="false"/>
+		
+	</http>
+
+	<b:bean name="bcryptEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+		
+	<authentication-manager>
+		<authentication-provider user-service-ref="myUserDetailsService">
+			<password-encoder ref="bcryptEncoder" />
+		</authentication-provider>
+	</authentication-manager>
+
+	<b:bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<b:constructor-arg ref="dataSource" />
+	</b:bean>
+
+	<b:bean id="myUserDetailsService"
+		class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+		<b:property name="dataSource" ref="dataSource" />
+	</b:bean>
+
+
+</b:beans>
+<!-- http://docs.spring.io/spring-security/site/docs/current/guides/html5/helloworld-xml.html 
+	http://springinpractice.com/2010/07/06/spring-security-database-schemas-for-mysql -->
