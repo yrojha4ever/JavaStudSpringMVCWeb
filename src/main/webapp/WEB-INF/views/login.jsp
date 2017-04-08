@@ -19,7 +19,7 @@
 <body>
 
 	<section class="loginform cf">
-		<form action="login" method="post" model="user" accept-charset="utf-8">
+		<form action="login" method="post">
 			<ul>
 				<li>
 					<c:if test="${error ne null}">
