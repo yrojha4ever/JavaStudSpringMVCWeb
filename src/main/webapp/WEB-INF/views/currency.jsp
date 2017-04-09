@@ -1,10 +1,9 @@
-<!doctype html>
-<html >
-<head>
-	<script src="${pageContext.request.contextPath }/resources/js/angular.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/app/currencyAngularApp.js"></script>
-</head>
-<body>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:import url="header.jsp"/>
+
+<script src="${pageContext.request.contextPath }/resources/js/angular.js"></script>
+<script src="${pageContext.request.contextPath }/resources/js/app/currencyAngularApp.js"></script>
+
 	<h2>Currency </h2>
 	
 	<div ng-app="currencyApp" ng-controller="CurrencyController">	

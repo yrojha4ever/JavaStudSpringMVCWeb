@@ -1,37 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
+<c:import url="header.jsp"/>
 
-<!DOCTYPE>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap-theme.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery.dataTables.css">
-
-<script src="${pageContext.request.contextPath }/resources/js/jquery.js"></script>
-<script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
-<script	src="${pageContext.request.contextPath }/resources/js/jquery.dataTables.js"></script>
-
-</head>
-<body>
-
-
-
-	Welcome: <%=session.getAttribute("activeUser")%> | <a href="${pageContext.request.contextPath }/logout"> Logout User </a>
-
-	<hr>
 	<h2>Student Information</h2>
-	<form:form method="POST" modelAttribute="student"
-		enctype="multipart/form-data">
+	<form:form method="POST" modelAttribute="student" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td>Select a Photo to Upload: <form:input path="file" type="file"/></td>
