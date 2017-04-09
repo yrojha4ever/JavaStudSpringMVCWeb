@@ -10,10 +10,11 @@
 	<properties>
 		<java-version>1.8</java-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<org.springframework-version>4.0.3.RELEASE</org.springframework-version>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<org.springframework-version>4.3.5.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.7.4</org.aspectj-version>
 		<org.slf4j-version>1.7.5</org.slf4j-version>
+		<springsecurity.version>4.2.2.RELEASE</springsecurity.version>
 	</properties>
 	<dependencies>
 
@@ -37,6 +38,24 @@
 		</dependency>
 
 		<!-- START: Extra spring library added: -->
+		<!-- Spring Security version 4 -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${springsecurity.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${springsecurity.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.8.10</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
@@ -68,21 +87,21 @@
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
 		</dependency>
-		
+
 		<!-- Common File Upload: -->
 		<dependency>
-            <groupId>commons-fileupload</groupId>
-            <artifactId>commons-fileupload</artifactId>
-            <version>1.2.2</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.2</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
 		</dependency>
-        
-        
+
+
 		<!-- Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -101,7 +120,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.10</version>
 		</dependency>
-		
+
 		<!-- Lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -109,7 +128,7 @@
 			<version>1.16.14</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<!-- END: Extra spring library added: -->
 
 		<!-- AspectJ -->
@@ -196,11 +215,11 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-		    <groupId>org.hamcrest</groupId>
-		    <artifactId>hamcrest-core</artifactId>
-		    <version>1.3</version>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-core</artifactId>
+			<version>1.3</version>
 		</dependency>
-		
+
 	</dependencies>
 	<build>
 		<plugins>
@@ -243,14 +262,14 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
-				    <server>localhost</server>
-				    <path>/springmvcweb</path>
-				    <systemProperties>
-					<user.timezone>Etc/UTC</user.timezone>
-				    </systemProperties>
+					<server>localhost</server>
+					<path>/springmvcweb</path>
+					<systemProperties>
+						<user.timezone>Etc/UTC</user.timezone>
+					</systemProperties>
 				</configuration>
 			</plugin>
-			
+
 		</plugins>
 	</build>
 </project>
