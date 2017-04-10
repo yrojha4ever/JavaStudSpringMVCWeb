@@ -52,7 +52,10 @@
                     <a href="${pageContext.request.contextPath }/angular">Angular App</a>
                 </li>
                 <li>
-                    <a href="${pageContext.request.contextPath }/logout">Logout</a>
+                    <form class="" action="<c:url value="/logout"/>" method="post">
+                        <input type="submit" class="btn btn-link" value="Log out"/>
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    </form>
                 </li>
                 <li>
                     <a href="${pageContext.request.contextPath }/about">About</a>
@@ -72,9 +75,8 @@
 	                	<div class="col-lg-8">
                             <form class="" action="<c:url value="/logout"/>" method="post">
 
-                                Welcome: <c:out value="${pageContext.request.remoteUser}"/>  |
+                                Welcome: <c:out value="${pageContext.request.remoteUser}"/>  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 
-                                <a href="<c:url value="/"/>"> HOME </a>  |
                                 <input type="submit" class="btn btn-link" value="Log out"/>
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                             </form>
