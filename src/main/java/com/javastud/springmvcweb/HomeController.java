@@ -32,6 +32,11 @@ public class HomeController {
 		return "profile";
 	}
 
+    @RequestMapping(value="/profile", method = RequestMethod.GET)
+    public String profile(){
+        return "profile";
+    }
+
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String profile() {
 		return "login";
@@ -65,5 +70,15 @@ public class HomeController {
 	public String angular() {
 		return "currency";
 	}
+	
+	@RequestMapping(value="/about", method = RequestMethod.GET)
+	public String about(){
+		return "about";
+	}
 
+	@RequestMapping(value="/index", method = RequestMethod.GET)
+	public String index(){
+		return "index";
+	}
+	
 }

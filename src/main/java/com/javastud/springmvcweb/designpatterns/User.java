@@ -13,7 +13,7 @@ public class User {
 	private int age;
 	private String email;
 
-	public static UserBuilder UserBuilder() {
+	public static UserBuilder builder() {
 		return new UserBuilder();
 	}
 
