@@ -45,7 +45,7 @@
                 	<hr/>
                     <div class="col-lg-12">
                     	
-                        
+                        <h1> Sample Demo for Sidebar Menu</h1>
                         
                     </div>
                 </div>

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.javastud.springmvcweb.dao.StudentDao;
 import com.javastud.springmvcweb.model.Student;
@@ -38,12 +39,14 @@ public class StudentController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String studGET(Model model) {
+	public ModelAndView studGET(Model model) {
 
-		model.addAttribute("student", new Student());
-		model.addAttribute("studentList", studentDao.getAll());
+		ModelAndView mv = new ModelAndView("studentForm");
+		
+		mv.addObject("student", new Student());
+		mv.addObject("studentList", studentDao.getAll());
 
-		return "studentForm";
+		return mv;
 	}
 
 	@RequestMapping(method = RequestMethod.POST)

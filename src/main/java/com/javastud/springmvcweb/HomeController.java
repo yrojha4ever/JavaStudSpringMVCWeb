@@ -37,6 +37,11 @@ public class HomeController {
 		return "login";
 	}
 	
+	@RequestMapping(value="/profile", method = RequestMethod.GET)
+	public String profile(){
+		return "profile";
+	}
+	
 	@RequestMapping(value="/profile", method = RequestMethod.POST)
 	public String profilePOST( @ModelAttribute User user, Model model, HttpSession session){
 		if(userDao.validateUser(user)){
@@ -69,6 +74,14 @@ public class HomeController {
 		return "currency";
 	}
 	
+	@RequestMapping(value="/about", method = RequestMethod.GET)
+	public String about(){
+		return "about";
+	}
 	
+	@RequestMapping(value="/index", method = RequestMethod.GET)
+	public String index(){
+		return "index";
+	}
 	
 }
