@@ -1,7 +1,7 @@
 package com.javastud.springmvcweb.service;
 
+import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -14,11 +14,16 @@ public class FileStorageService {
 	public void saveFile(MultipartFile file) {
 		// Save file in drive
 		try {
-			FileOutputStream out = new FileOutputStream(FILE_PATH + file.getOriginalFilename());
-			out.write(file.getBytes());
-			out.close();
+			/*
+				FileOutputStream out = new FileOutputStream(FILE_PATH + file.getOriginalFilename());
+				out.write(file.getBytes());
+				out.close();
+			*/
 
-		} catch (IOException e) {
+			// OR
+			file.transferTo(new File(FILE_PATH + file.getOriginalFilename()));
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
