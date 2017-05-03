@@ -24,6 +24,15 @@ import java.util.stream.Stream;
  * without using semicolons. Terminal operations are either void or return a
  * non-stream result. Filter, map and sorted are intermediate operations whereas
  * forEach is a terminal operation.
+ *
+ * Method reference: Shortcut way to write lambda. When lambda expression invokes
+ * an existing method, you can use a method reference instead of a lambda expression.
+ * Method reference	 	Equivalent lambda expression
+ * ----------------		---------------------------
+ *	String::valueOf		x -> String.valueOf(x)
+ *	Object::toString	x -> x.toString()
+ *	x::toString			() -> x.toString()
+ *	ArrayList::new		() -> new ArrayList<>()
  * 
  * @author ojhay
  *         http://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/
@@ -40,9 +49,9 @@ public class StreamTest {
 		myList
 			.stream()
 			.filter(s -> s.startsWith("c"))
-			.map(String::toUpperCase)
+			.map(String::toUpperCase) /*.map(s -> s.toUpperCase())*/
 			.sorted()
-			.forEach(System.out::println);
+			.forEach(System.out::println); /*x -> System.out.println(x)*/
 
 		// C1
 		// C2
@@ -75,24 +84,11 @@ public class StreamTest {
 				.map(n -> 2 * n + 1)
 				.average()
 				.ifPresent(System.out::println);
-
-		// 5.0
+		//OR
+		IntStream.of(20, 30, 10, 40)
+		.average()
+		.ifPresent(System.out::println);
 		
-		
-		System.out.println("==========Advance operation========");
-		List<Person> persons =
-			    Arrays.asList(
-			        new Person("Max", 18),
-			        new Person("Peter", 23),
-			        new Person("Mark", 23),
-			        new Person("David", 12));
-		
-		List<Person> filtered = persons
-									.stream()
-									.filter(p -> p.name.startsWith("M"))
-									.collect(Collectors.toList());
-		System.out.println(filtered);
-		
-
+		//5.0: With object: see LambdaStreamCollectorExample
 	}
 }
