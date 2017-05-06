@@ -1,4 +1,4 @@
-package com.javastud.springmvcweb.designpatterns;
+package com.javastud.springmvcweb.designpatterns.builder;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

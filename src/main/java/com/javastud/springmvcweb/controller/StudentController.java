@@ -42,7 +42,6 @@ public class StudentController {
 	public ModelAndView studGET(Model model) {
 
 		ModelAndView mv = new ModelAndView("studentForm");
-		
 		mv.addObject("student", new Student());
 		mv.addObject("studentList", studentDao.getAll());
 
@@ -50,31 +49,22 @@ public class StudentController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String studPOST(Model model, @ModelAttribute Student student) {
-
+	public String studPOST(@ModelAttribute Student student) {
 		saveStudent(student);
-
+		return "redirect:/stud";
+	}
+	
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	public String addStud(Model model) {
 		model.addAttribute("student", new Student());
-		model.addAttribute("studentList", studentDao.getAll());
-
-		return "studentForm";
+		return "studentFormDialog";
 	}
 
 	@RequestMapping(value = "{id}/edit", method = RequestMethod.GET)
 	public String editStud(@PathVariable("id") Long id, Model model) {
-
 		Student stud = studentDao.get(id);
-
 		model.addAttribute("student", stud);
-		model.addAttribute("studentList", studentDao.getAll());
-
-		return "studentForm";
-	}
-
-	@RequestMapping(value = "{id}/edit", method = RequestMethod.POST)
-	public String editStudPOST(@ModelAttribute Student student) {
-		saveStudent(student);
-		return "redirect:/stud";
+		return "studentFormDialog";
 	}
 
 	@RequestMapping(value = "{id}/delete", method = RequestMethod.GET)

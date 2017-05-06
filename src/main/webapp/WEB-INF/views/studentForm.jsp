@@ -4,51 +4,14 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
+
 <c:import url="header.jsp"/>
 
 	<h2>Student Information</h2>
-	<form:form method="POST" modelAttribute="student" enctype="multipart/form-data">
-		<table>
-			<tr>
-				<td>Select a Photo to Upload: <form:input path="file" type="file"/></td>
-				<td><img id="image" alt="" src="${pageContext.request.contextPath }/download?file=${student.imageName}" width="100" height="100" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="birthDate"> Birth Date </form:label></td>
-				<td><form:input path="birthDate" type="date" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="firstName"> First Name </form:label></td>
-				<td><form:input path="firstName" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="lastName"> Last Name </form:label></td>
-				<td><form:input path="lastName" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="rollNo"> Roll NO </form:label></td>
-				<td><form:input path="rollNo" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="subject">Subject</form:label></td>
-				<td><form:input path="subject" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="collegeName">College Name</form:label></td>
-				<td><form:input path="collegeName" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="fee">Fee</form:label></td>
-				<td><form:input path="fee" type="number" step="0.01" /></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><input type="submit" class="btn btn-info" value="Save" /></td>
-			</tr>
-		</table>
-		<form:hidden path="id" />
-		<form:hidden path="imageName" />
-	</form:form>
+	<button class="btn btn-primary" onclick="addStud()">
+		<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Student
+	</button>
+	<div id="studentFormDialog"> </div>
 
 	<hr />
 	Student Details
@@ -72,8 +35,10 @@
 				<tr>
 					<td>${row.id }</td>
 					<td>
-						<button class="btn btn-success" onclick="editStud(${row.id})">Edit</button>
-						<button class="btn btn-danger" onclick="deleteStud(${row.id})">Delete</button> 
+						<button class="btn btn-success" onclick="editStud(${row.id})">
+						<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>
+						<button class="btn btn-danger" onclick="deleteStud(${row.id})">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete</button> 
 						<img alt="" src="${pageContext.request.contextPath }/download?file=${row.imageName}" width="50" height="50" />
 					</td>
 					<td>${row.firstName }, &nbsp; ${row.lastName }</td>
@@ -89,9 +54,25 @@
 	</table>
 
 	<script type="text/javascript">
-		function editStud(id){
-			location.href="${pageContext.request.contextPath}/stud/" + id + "/edit";
+	
+		function addStud(){
+			var addStudUrl = "${pageContext.request.contextPath}/stud/add";
+			$.get(addStudUrl)
+				.then(function(studFormDialog){
+					$("#studentFormDialog").html(studFormDialog);
+					$("#studnetFormModal").modal('show');
+				});
 		}
+		
+		function editStud(id){
+			var editStudUrl="${pageContext.request.contextPath}/stud/" + id + "/edit";
+			$.get(editStudUrl)
+					.then(function(studFormDialog){
+					$("#studentFormDialog").html(studFormDialog);
+					$("#studnetFormModal").modal('show');
+				});
+		}
+		
 		function deleteStud(id){
 			var r = confirm("Are you sure you want to delete this record?");
 			if(r == true){
@@ -102,18 +83,6 @@
 		$(document).ready(function(){
 			$('#studTable').DataTable();
 		});
-		
-		document.getElementById("file").onchange = function () {
-		    
-			var reader = new FileReader();
-		    reader.onload = function (e) {
-		        // get loaded data and render thumbnail.
-		        document.getElementById("image").src = e.target.result;
-		    };
-
-		    // read the image file as a data URL.
-		    reader.readAsDataURL(this.files[0]);
-		};
 		
 	</script>
 

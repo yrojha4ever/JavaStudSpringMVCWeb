@@ -1,4 +1,4 @@
-package com.javastud.springmvcweb.designpatterns;
+package com.javastud.springmvcweb.designpatterns.factory;
 
 public class FactoryPatterenExample {
 	public static void main(String[] args) {
