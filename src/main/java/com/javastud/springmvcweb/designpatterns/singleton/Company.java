@@ -1,4 +1,4 @@
-package com.javastud.springmvcweb.designpatterns;
+package com.javastud.springmvcweb.designpatterns.singleton;
 
 public class Company {
 
