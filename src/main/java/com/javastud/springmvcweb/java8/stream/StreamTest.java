@@ -34,7 +34,7 @@ import java.util.stream.Stream;
  *	Object::toString	x -> x.toString()
  *	x::toString			() -> x.toString()
  *	ArrayList::new		() -> new ArrayList<>()
- * 
+ * 	System.out::println		x -> System.out.println(x)
  * @author ojhay
  *         http://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/
  */
