@@ -16,25 +16,22 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public boolean validateUser(User user) {
-		try{
-			
+		try {
 			JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-			
-			String query = "SELECT username FROM USER WHERE username = '" +   user.getUsername() +
-						   "' AND PASSWORD = '" +   user.getPassword() + "'";      
+
+			String query = "SELECT username FROM USER WHERE username = '" + user.getUsername() + "' AND PASSWORD = '"
+					+ user.getPassword() + "'";
 			System.out.println(query);
-			
-			String dbUserName = jdbcTemplate.queryForObject(query, String.class);
-			if(dbUserName != null && dbUserName.equals(user.getUsername())){
+
+			String dbUsername = jdbcTemplate.queryForObject(query, String.class);
+			if (dbUsername != null) {
 				return true;
-			}else {
-				return false;
 			}
-			
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
-			return false;
 		}
+
+		return false;
 		
 	}
 

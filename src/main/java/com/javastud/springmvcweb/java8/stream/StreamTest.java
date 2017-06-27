@@ -47,6 +47,7 @@ public class StreamTest {
 		// FILTER:stateless predicate to apply to each element to determine if
 		// it should be included
 
+		//Task: filter: start with c, 	upper case, 	sorted, 	print
 		myList
 			.stream()
 			.filter(s -> s.startsWith("c"))

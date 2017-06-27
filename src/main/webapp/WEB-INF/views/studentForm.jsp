@@ -60,7 +60,7 @@
 			$.get(addStudUrl)
 				.then(function(studFormDialog){
 					$("#studentFormDialog").html(studFormDialog);
-					$("#studnetFormModal").modal('show');
+					$("#studentFormModal").modal('show');
 				});
 		}
 		
@@ -69,7 +69,7 @@
 			$.get(editStudUrl)
 					.then(function(studFormDialog){
 					$("#studentFormDialog").html(studFormDialog);
-					$("#studnetFormModal").modal('show');
+					$("#studentFormModal").modal('show');
 				});
 		}
 		

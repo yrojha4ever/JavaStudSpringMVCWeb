@@ -9,6 +9,11 @@
       <input type="text" ng-model="yourName" placeholder="Enter a name here">
       <hr>
       <h1>Hello {{yourName}}!</h1>
+	  
+	  <hr/>
+	  <button ng-click="count?(count=count+1):(count=1)"> TICK </button>
+	  <input type="text" ng-model="count">
+	  
     </div>
   </body>
 </html>

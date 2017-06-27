@@ -14,7 +14,7 @@
 				<label>  
 					<span> {{currencyBase}} : {{currencyRate}} </span>
 				</label>				
-			</li>			
+			</li>
 		</ul>
 				
 	</div>

@@ -9,6 +9,14 @@ public class SingletonPatternExample {
 		System.out.println(comp2);
 
 		System.out.println(comp1 == comp2);
+		
+		// best Example : open calc(Runtime)
+		try {
+			Runtime r = Runtime.getRuntime();
+			r.exec("calc");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 }

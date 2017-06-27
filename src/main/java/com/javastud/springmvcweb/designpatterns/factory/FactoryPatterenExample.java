@@ -9,5 +9,7 @@ public class FactoryPatterenExample {
 
 		Bank nabil = bankFactory.getBank(BankType.NABIL);
 		nabil.info();
+		
+		//Best Example: Hibernate SessionFactory
 	}
 }

@@ -30,6 +30,10 @@ public interface Bank {
 	default double getRate() {
 		return 1.0;
 	}
+	
+	default double getMaxTransAmout(){
+		return 1_00_000.0;
+	}
 
 	public static double getDollarExchangeRate() {
 		return 105.5;
