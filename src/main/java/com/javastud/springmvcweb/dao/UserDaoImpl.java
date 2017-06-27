@@ -19,8 +19,7 @@ public class UserDaoImpl implements UserDao {
 		try {
 			JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
-			String query = "SELECT username FROM USER WHERE username = '" + user.getUsername() + "' AND PASSWORD = '"
-					+ user.getPassword() + "'";
+			String query = "SELECT username FROM USER WHERE username = '" + user.getUsername() + "' AND PASSWORD = '" + user.getPassword() + "'";
 			System.out.println(query);
 
 			String dbUsername = jdbcTemplate.queryForObject(query, String.class);

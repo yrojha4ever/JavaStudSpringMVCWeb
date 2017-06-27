@@ -1,5 +1,7 @@
 package com.javastud.springmvcweb.designpatterns.singleton;
 
+import java.io.IOException;
+
 public class SingletonPatternExample {
 	public static void main(String[] args) {
 		Company comp1 = Company.getInstance();
