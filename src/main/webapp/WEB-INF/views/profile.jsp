@@ -13,4 +13,7 @@
 	<hr/>
 	<a href="${pageContext.request.contextPath }/angular"> Angular App  </a>
 	
+	<hr/>
+	<a href="${pageContext.request.contextPath }/emp"> Employee Page  </a>
+	
 <c:import url="footer.jsp"/>

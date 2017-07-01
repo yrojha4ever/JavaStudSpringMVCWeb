@@ -84,4 +84,9 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping(value="/relation", method = RequestMethod.GET)
+	public String saveAllRelationDemo(){
+		return "relation/employee";
+	}
+	
 }
