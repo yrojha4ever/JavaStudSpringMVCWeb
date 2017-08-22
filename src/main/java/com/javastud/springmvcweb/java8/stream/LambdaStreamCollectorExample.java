@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class LambdaStreamCollectorExample {
 	public static void main(String[] args) {
 
-		List<Person> persons = Arrays.asList(new Person("Max", 18), new Person("Peter", 23), new Person("Mark", 23),
+		List<Person> persons = Arrays.asList(new Person("Max", 18), new Person("Peter", 23), new Person("Mark", 33),
 				new Person("David", 12));
 
 		System.out.println(persons);

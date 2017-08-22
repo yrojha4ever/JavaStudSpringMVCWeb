@@ -29,6 +29,7 @@ public class StudentDaoImpl implements StudentDao {
 	@Transactional
 	public List<Student> getAll() {
 		Session session = sessionFactory.getCurrentSession();
+		//criteria = where, condition = Restrictions
 		Criteria criteria = session.createCriteria(Student.class);
 		
 		/*criteria.add(Restrictions.eq("lastName", "SHRESTHA"));
