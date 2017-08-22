@@ -38,7 +38,11 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/profile", method = RequestMethod.GET)
-	public String profile(){
+	public String profile(HttpSession session){
+		String activeUser = (String)session.getAttribute("activeUser");
+		if(null == activeUser){
+			return "login";
+		}
 		return "profile";
 	}
 	

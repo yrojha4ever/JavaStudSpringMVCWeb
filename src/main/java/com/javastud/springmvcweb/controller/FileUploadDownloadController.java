@@ -3,7 +3,6 @@ package com.javastud.springmvcweb.controller;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -18,10 +17,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.javastud.springmvcweb.service.FileStorageService;
 
@@ -31,9 +32,10 @@ public class FileUploadDownloadController {
 	@Autowired
 	private FileStorageService fileStorageService;
 
-	@RequestMapping(value = "/upload", method = RequestMethod.GET)
-	public String uploadGET() {
-		return "fileUpload";
+	@GetMapping("/upload")
+	public ModelAndView uploadGET(){
+		ModelAndView mv = new ModelAndView("fileUpload");
+		return mv;
 	}
 
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
