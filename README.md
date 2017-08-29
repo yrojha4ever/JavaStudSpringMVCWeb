@@ -1,4 +1,5 @@
 # JavaStudSpringMVCWeb
+Spring Boot Version of this App: [springmvcweb-boot](https://github.com/yrojha4ever/springmvcweb-boot)<br/>
 This is annotation based on Spring and Hibernate Version 4 project.
 
 <strong>Run project using maven command: <i>mvn clean package tomcat7:run </i></strong><br/> 
